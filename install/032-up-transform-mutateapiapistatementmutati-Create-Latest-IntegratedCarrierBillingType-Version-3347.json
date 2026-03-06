@@ -1,0 +1,238 @@
+{
+  "action": {
+    "up": {
+      "transform": "$mutate({\"api\":$api,\"statement\":'mutation($payload:[' & $type & 'CreatePayloadInput!]!){data:create' & $type & '(payload:$payload){id}}',\"variables\":{\"payload\":[$.{\"create\":$}]}}).data.id",
+      "bindings": {
+        "api": "application",
+        "type": "DataModelVersion"
+      }
+    },
+    "down": {
+      "transform": "$",
+      "bindings": {}
+    }
+  },
+  "payload": [
+    {
+      "id": "ckmxv1ayz00b70i6g44167zoi",
+      "number": "5",
+      "dataModelId": "integratedCarrierBillingType",
+      "modelDefinition": {
+        "name": "IntegratedCarrierBillingType",
+        "metadata": {
+          "mfgx": {
+            "module": {
+              "id": "logistics",
+              "group": {
+                "id": "materialsManagement"
+              }
+            },
+            "exposed": true,
+            "mutable": true,
+            "mutations": {
+              "create": true,
+              "update": true,
+              "del": true
+            },
+            "dataChangeCapture": {
+              "exposed": true,
+              "retentionDays": 120
+            },
+            "labelField": "name"
+          },
+          "mongo": {
+            "collection": "integratedCarrierBillingType"
+          },
+          "graphql": {
+            "type": "Object"
+          }
+        },
+        "kind": "Reference",
+        "fields": [
+          {
+            "name": "id",
+            "type": "ID!",
+            "description": "The primary unique ID of the record.  Every model should have an id field.",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": false
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": true
+            }
+          },
+          {
+            "name": "name",
+            "type": "String!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "code",
+            "type": "String!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierId",
+            "type": "ID!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrier",
+            "description": "",
+            "type": "IntegratedCarrier!",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "integratedCarrierId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "accounts",
+            "description": "",
+            "type": "[IntegratedCarrierAccount!]!",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "id",
+                    "to": "integratedCarrierBillingTypeId"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          }
+        ],
+        "description": ""
+      }
+    }
+  ],
+  "description": "Create Latest IntegratedCarrierBillingType Version (33/47)"
+}

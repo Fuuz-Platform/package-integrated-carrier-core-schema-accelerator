@@ -1,0 +1,592 @@
+{
+  "action": {
+    "up": {
+      "transform": "$mutate({\"api\":$api,\"statement\":'mutation($payload:[' & $type & 'CreatePayloadInput!]!){data:create' & $type & '(payload:$payload){id}}',\"variables\":{\"payload\":[$.{\"create\":$}]}}).data.id",
+      "bindings": {
+        "api": "application",
+        "type": "DataModelVersion"
+      }
+    },
+    "down": {
+      "transform": "$",
+      "bindings": {}
+    }
+  },
+  "payload": [
+    {
+      "id": "ckn97s9hv00030i83bzvt8bfw",
+      "number": "5",
+      "dataModelId": "integratedCarrierShipment",
+      "modelDefinition": {
+        "name": "IntegratedCarrierShipment",
+        "metadata": {
+          "mfgx": {
+            "module": {
+              "id": "logistics",
+              "group": {
+                "id": "materialsManagement"
+              }
+            },
+            "exposed": true,
+            "mutable": true,
+            "mutations": {
+              "create": true,
+              "update": true,
+              "del": true
+            },
+            "dataChangeCapture": {
+              "exposed": true,
+              "retentionDays": 120
+            },
+            "labelField": "number"
+          },
+          "mongo": {
+            "collection": "integratedCarrierShipment"
+          },
+          "graphql": {
+            "type": "Object"
+          }
+        },
+        "kind": "Reference",
+        "fields": [
+          {
+            "name": "id",
+            "type": "ID!",
+            "description": "The primary unique ID of the record.  Every model should have an id field.",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": false
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": true
+            }
+          },
+          {
+            "name": "number",
+            "type": "String!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": true
+            }
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "externalReferenceUrl",
+            "type": "String",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "shipTo",
+            "type": "JSON",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "shipToAddress",
+            "type": "Address",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "shipFrom",
+            "type": "JSON",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "shipFromAddress",
+            "type": "Address",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "packageDefinitions",
+            "type": "JSON",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "trackingNumber",
+            "type": "String",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "packageLabels",
+            "type": "JSON",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "totalCharges",
+            "type": "Measure",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierId",
+            "type": "ID",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrier",
+            "description": "",
+            "type": "IntegratedCarrier",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "integratedCarrierId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierServiceId",
+            "type": "ID",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierService",
+            "description": "",
+            "type": "IntegratedCarrierService",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "integratedCarrierServiceId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierBillToAccountId",
+            "type": "ID",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierBillToAccount",
+            "description": "",
+            "type": "IntegratedCarrierAccount",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "integratedCarrierBillToAccountId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierConnectionConfigurationId",
+            "type": "ID",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierConnectionConfiguration",
+            "description": "",
+            "type": "IntegratedCarrierConnectionConfiguration",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "integratedCarrierConnectionConfigurationId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierShipmentIntegratedCarrierRequests",
+            "description": "",
+            "type": "[IntegratedCarrierRequest!]!",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "id",
+                    "to": "integratedCarrierShipmentId"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          }
+        ],
+        "description": ""
+      }
+    }
+  ],
+  "description": "Create Latest IntegratedCarrierShipment Version (45/47)"
+}

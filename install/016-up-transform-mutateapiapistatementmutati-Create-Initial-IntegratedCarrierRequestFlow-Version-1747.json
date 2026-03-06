@@ -1,0 +1,153 @@
+{
+  "action": {
+    "up": {
+      "transform": "$mutate({\"api\":$api,\"statement\":'mutation($payload:[' & $type & 'CreatePayloadInput!]!){data:create' & $type & '(payload:$payload){id}}',\"variables\":{\"payload\":[$.{\"create\":$}]}}).data.id",
+      "bindings": {
+        "api": "application",
+        "type": "DataModelVersion"
+      }
+    },
+    "down": {
+      "transform": "$",
+      "bindings": {}
+    }
+  },
+  "payload": [
+    {
+      "id": "ckmwi5fsp000y0i711kpidq17",
+      "number": "1",
+      "dataModelId": "integratedCarrierRequestFlow",
+      "modelDefinition": {
+        "name": "IntegratedCarrierRequestFlow",
+        "metadata": {
+          "mfgx": {
+            "module": {
+              "id": "logistics",
+              "group": {
+                "id": "materialsManagement"
+              }
+            },
+            "exposed": true,
+            "mutable": true,
+            "mutations": {
+              "create": true,
+              "update": true,
+              "del": true
+            },
+            "dataChangeCapture": {
+              "exposed": true,
+              "retentionDays": 120
+            }
+          },
+          "mongo": {
+            "collection": "integratedCarrierRequestFlow"
+          },
+          "graphql": {
+            "type": "Object"
+          }
+        },
+        "kind": "Reference",
+        "fields": [
+          {
+            "name": "id",
+            "type": "ID!",
+            "description": "The primary unique ID of the record.  Every model should have an id field.",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": false
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": true
+            }
+          },
+          {
+            "name": "integratedCarrierRequestTypeId",
+            "type": "String",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierId",
+            "type": "String",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "dataFlowId",
+            "type": "String",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          }
+        ],
+        "description": ""
+      }
+    }
+  ],
+  "description": "Create Initial IntegratedCarrierRequestFlow Version (17/47)"
+}

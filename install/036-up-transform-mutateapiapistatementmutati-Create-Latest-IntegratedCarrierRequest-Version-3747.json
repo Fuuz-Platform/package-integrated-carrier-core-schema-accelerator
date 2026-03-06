@@ -1,0 +1,413 @@
+{
+  "action": {
+    "up": {
+      "transform": "$mutate({\"api\":$api,\"statement\":'mutation($payload:[' & $type & 'CreatePayloadInput!]!){data:create' & $type & '(payload:$payload){id}}',\"variables\":{\"payload\":[$.{\"create\":$}]}}).data.id",
+      "bindings": {
+        "api": "application",
+        "type": "DataModelVersion"
+      }
+    },
+    "down": {
+      "transform": "$",
+      "bindings": {}
+    }
+  },
+  "payload": [
+    {
+      "id": "ckn6gkmzq005l0j39dj6b7k61",
+      "number": "7",
+      "dataModelId": "integratedCarrierRequest",
+      "modelDefinition": {
+        "name": "IntegratedCarrierRequest",
+        "metadata": {
+          "mfgx": {
+            "module": {
+              "id": "logistics",
+              "group": {
+                "id": "materialsManagement"
+              }
+            },
+            "exposed": true,
+            "mutable": true,
+            "mutations": {
+              "create": true,
+              "update": true,
+              "del": true
+            },
+            "dataChangeCapture": {
+              "exposed": true,
+              "retentionDays": 120
+            }
+          },
+          "mongo": {
+            "collection": "integratedCarrierRequest"
+          },
+          "graphql": {
+            "type": "Object"
+          }
+        },
+        "kind": "Reference",
+        "fields": [
+          {
+            "name": "id",
+            "type": "ID!",
+            "description": "The primary unique ID of the record.  Every model should have an id field.",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": false
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": true
+            }
+          },
+          {
+            "name": "sandbox",
+            "type": "Boolean!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                },
+                "defaultValue": false
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "error",
+            "type": "Boolean!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                },
+                "defaultValue": false
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "request",
+            "type": "JSONObject",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "rawRequest",
+            "type": "JSON",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "response",
+            "type": "JSONObject",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "errors",
+            "type": "JSON",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "rawResponse",
+            "type": "JSON",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "connectionId",
+            "type": "ID!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "connection",
+            "description": "",
+            "type": "Connection!",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "connectionId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierRequestTypeId",
+            "type": "ID!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierRequestType",
+            "description": "",
+            "type": "IntegratedCarrierRequestType!",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "integratedCarrierRequestTypeId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierShipmentId",
+            "type": "ID!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierShipment",
+            "description": "",
+            "type": "IntegratedCarrierShipment!",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "integratedCarrierShipmentId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          }
+        ],
+        "description": ""
+      }
+    }
+  ],
+  "description": "Create Latest IntegratedCarrierRequest Version (37/47)"
+}

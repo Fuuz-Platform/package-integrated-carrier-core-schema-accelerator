@@ -1,0 +1,46 @@
+{
+  "action": {
+    "up": {
+      "transform": "$mutate({\"api\":$api,\"statement\":'mutation($payload:[' & $type & 'CreatePayloadInput!]!){data:create' & $type & '(payload:$payload){id}}',\"variables\":{\"payload\":[$.{\"create\":$}]}}).data.id",
+      "bindings": {
+        "api": "application",
+        "type": "IntegratedCarrierRequestType"
+      }
+    },
+    "down": {
+      "transform": "$mutate({\"api\":$api,\"statement\":'mutation($payload:[' & $type & 'DeletePayloadInput!]!){delete' & $type & '(payload:$payload){id}}',\"variables\":{\"payload\":[$.{\"where\":{\"id\":id}}]}})",
+      "bindings": {
+        "api": "application",
+        "type": "IntegratedCarrierRequestType"
+      }
+    }
+  },
+  "payload": [
+    {
+      "id": "createShipment",
+      "label": "Create Shipment",
+      "description": "Sends a shipment to a carrier."
+    },
+    {
+      "id": "printLabels",
+      "label": "Print Labels",
+      "description": "Prints labels returned by a carrier."
+    },
+    {
+      "id": "rateShipment",
+      "label": "Rate Shipment",
+      "description": "Retrieve listed rates for a shipment."
+    },
+    {
+      "id": "validateAddress",
+      "label": "Validate Address",
+      "description": "Validate the shipment's ship to address."
+    },
+    {
+      "id": "voidShipment",
+      "label": "Void Shipment",
+      "description": "Voids a shipment."
+    }
+  ],
+  "description": "Insert IntegratedCarrierRequestType Data (48/47)"
+}

@@ -1,0 +1,253 @@
+{
+  "action": {
+    "up": {
+      "transform": "$mutate({\"api\":$api,\"statement\":'mutation($payload:[' & $type & 'CreatePayloadInput!]!){data:create' & $type & '(payload:$payload){id}}',\"variables\":{\"payload\":[$.{\"create\":$}]}}).data.id",
+      "bindings": {
+        "api": "application",
+        "type": "DataModelVersion"
+      }
+    },
+    "down": {
+      "transform": "$",
+      "bindings": {}
+    }
+  },
+  "payload": [
+    {
+      "id": "ckmwi5rep00100i715veh7dse",
+      "number": "2",
+      "dataModelId": "integratedCarrierRequestFlow",
+      "modelDefinition": {
+        "name": "IntegratedCarrierRequestFlow",
+        "metadata": {
+          "mfgx": {
+            "module": {
+              "id": "logistics",
+              "group": {
+                "id": "materialsManagement"
+              }
+            },
+            "exposed": true,
+            "mutable": true,
+            "mutations": {
+              "create": true,
+              "update": true,
+              "del": true
+            },
+            "dataChangeCapture": {
+              "exposed": true,
+              "retentionDays": 120
+            },
+            "indices": [
+              {
+                "unique": true,
+                "fields": [
+                  "integratedCarrierRequestTypeId",
+                  "integratedCarrierId",
+                  "dataFlowId"
+                ]
+              }
+            ]
+          },
+          "mongo": {
+            "collection": "integratedCarrierRequestFlow"
+          },
+          "graphql": {
+            "type": "Object"
+          }
+        },
+        "kind": "Reference",
+        "fields": [
+          {
+            "name": "id",
+            "type": "ID!",
+            "description": "The primary unique ID of the record.  Every model should have an id field.",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": false
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": true
+            }
+          },
+          {
+            "name": "integratedCarrierRequestTypeId",
+            "type": "ID!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierRequestType",
+            "description": "",
+            "type": "IntegratedCarrierRequestType!",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "integratedCarrierRequestTypeId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrierId",
+            "type": "ID!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "integratedCarrier",
+            "description": "",
+            "type": "IntegratedCarrier!",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "integratedCarrierId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "dataFlowId",
+            "type": "ID!",
+            "description": "",
+            "metadata": {
+              "mfgx": {
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          },
+          {
+            "name": "dataFlow",
+            "description": "",
+            "type": "DataFlow!",
+            "metadata": {
+              "mfgx": {
+                "relation": {
+                  "fields": {
+                    "from": "dataFlowId",
+                    "to": "id"
+                  }
+                },
+                "mutations": {
+                  "create": {
+                    "include": true
+                  },
+                  "update": {
+                    "include": true
+                  }
+                },
+                "queries": {
+                  "include": true
+                },
+                "where": {
+                  "include": true
+                }
+              },
+              "unique": false
+            }
+          }
+        ],
+        "description": ""
+      }
+    }
+  ],
+  "description": "Create Latest IntegratedCarrierRequestFlow Version (39/47)"
+}
