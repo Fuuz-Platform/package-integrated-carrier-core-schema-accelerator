@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Integrated Carrier Core Schema Package &mdash; Fuuz Accelerator</title>
+<meta name="description" content="Fuuz accelerator: Integrated carrier schema â€” data models for carrier-agnostic shipping label system">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/package-integrated-carrier-core-schema-accelerator/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://accelerators.fuuz.com/package-integrated-carrier-core-schema-accelerator/">
+<meta property="og:site_name" content="Fuuz Accelerators">
+<meta property="og:title" content="Integrated Carrier Core Schema Package &mdash; Fuuz Accelerator">
+<meta property="og:description" content="Fuuz accelerator: Integrated carrier schema â€” data models for carrier-agnostic shipping label system">
+<link rel="icon" href="assets/appicon-violet.svg">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="prose.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "Integrated Carrier Core Schema Package",
+  "url": "https://accelerators.fuuz.com/package-integrated-carrier-core-schema-accelerator/",
+  "description": "Fuuz accelerator: Integrated carrier schema \u00e2\u20ac\u201d data models for carrier-agnostic shipping label system",
+  "codeRepository": "https://github.com/Fuuz-Platform/package-integrated-carrier-core-schema-accelerator",
+  "applicationCategory": "BusinessApplication",
+  "runtimePlatform": "Fuuz",
+  "author": {
+    "@type": "Organization",
+    "name": "Fuuz",
+    "url": "https://fuuz.com"
+  }
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Accelerators</span>
+    <nav><a href="#overview">Overview</a><a href="#package-contents">Package Contents</a><a href="#data-models-installed-9">Data Models Installed (9)</a><a href="https://github.com/Fuuz-Platform/package-integrated-carrier-core-schema-accelerator">GitHub</a></nav>
+  </div>
+</header>
+<main>
+<div class="wrap hero">
+  <p class="eyebrow">Accelerator &middot; Integration package</p>
+  <h1>Integrated Carrier Core Schema <span class="accent">Package</span></h1>
+  <p class="lede">Fuuz accelerator: Integrated carrier schema â€” data models for carrier-agnostic shipping label system</p>
+  <div class="ctas">
+    <a class="cta cta-primary" href="https://github.com/Fuuz-Platform/package-integrated-carrier-core-schema-accelerator">Get the package</a>
+    <a class="cta cta-secondary" href="../">All accelerators</a>
+  </div>
+</div>
+<section>
+  <div class="wrap prose">
+<p><strong>Version:</strong> 0.0.1
+<strong>Spec Version:</strong> 2.0.0</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>This package creates the complete data model schema required by the Integrated Carrier shipping system. It is the foundational layer of the Integrated Carrier suite and must be installed before any carrier-specific packages (FedEx, UPS) or the core flows and screens packages.</p>
+<p>It installs 9 custom data models that define the carrier abstraction layer — a carrier-agnostic schema that normalizes rate quotes, label generation, shipment tracking, and account configuration across multiple parcel carriers.</p>
+<hr />
+<h2 id="package-contents">Package Contents</h2>
+<pre><code>integrated-carrier-core-schema/
+├── manifest.json
+├── package-data.json
+├── install/                     48 install steps (creates model schemas + fields)
+└── preinstall/                  9 preinstall steps (uniqueness verification)
+</code></pre>
+<hr />
+<h2 id="data-models-installed-9">Data Models Installed (9)</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IntegratedCarrier</code></td>
+<td>Reference</td>
+<td>Named carrier entity (e.g., FedEx, UPS, USPS). Seed records are created by carrier-specific packages.</td>
+</tr>
+<tr>
+<td><code>IntegratedCarrierAccount</code></td>
+<td>Reference</td>
+<td>Carrier account credentials and configuration. Holds the account number, API keys, and environment (production/test) settings per carrier.</td>
+</tr>
+<tr>
+<td><code>IntegratedCarrierBillingType</code></td>
+<td>Reference</td>
+<td>Billing party options for shipments (e.g., Shipper, Receiver, Third Party). Carrier-specific billing type seed data provided by each carrier package.</td>
+</tr>
+<tr>
+<td><code>IntegratedCarrierConnectionConfiguration</code></td>
+<td>Reference</td>
+<td>Carrier API connection settings — endpoint URLs, timeout values, retry configuration. One record per carrier account.</td>
+</tr>
+<tr>
+<td><code>IntegratedCarrierRequest</code></td>
+<td>Reference</td>
+<td>Shipment request record. Captures the originating shipment details (origin/destination addresses, package dimensions, weight, service type, billing type) before submitting to the carrier API.</td>
+</tr>
+<tr>
+<td><code>IntegratedCarrierRequestFlow</code></td>
+<td>Reference</td>
+<td>Maps a request type to its handler flow. Enables the router to dispatch rate quote, label generation, and void requests to the correct carrier-specific flow.</td>
+</tr>
+<tr>
+<td><code>IntegratedCarrierRequestType</code></td>
+<td>Reference</td>
+<td>Classification of request types — Rate Quote, Label Generation, Void Label, Tracking, End-of-Day Close.</td>
+</tr>
+<tr>
+<td><code>IntegratedCarrierService</code></td>
+<td>Reference</td>
+<td>Carrier service level options (e.g., FedEx Ground, FedEx Standard Overnight, UPS Ground). Seed records provided by carrier-specific packages.</td>
+</tr>
+<tr>
+<td><em>(9th model)</em></td>
+<td>Reference</td>
+<td>Supporting reference model for carrier-specific extended configuration (special services, hazmat flags, customs declarations, etc.)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="install-process">Install Process</h2>
+<p><strong>Preinstall (9 steps):</strong> Verifies that none of the 9 data model IDs or names already exist in the environment. Throws a descriptive error if any conflict is detected, preventing partial or duplicate schema installation.</p>
+<p><strong>Install (48 steps):</strong> For each of the 9 models:
+1. Creates the DataModel header record
+2. Creates the model version with full field definitions
+3. Deploys the model to make it available in the Application API</p>
+<hr />
+<h2 id="installation">Installation</h2>
+<ol>
+<li>This package must be installed FIRST in the Integrated Carrier suite</li>
+<li>Import via Fuuz Package Manager</li>
+<li>Verify all 9 models are visible in the Fuuz Data Model Explorer after installation</li>
+<li>Proceed to install <code>package-integrated-carrier-core-flows-accelerator</code> and <code>package-integrated-carrier-core-screens-accelerator</code></li>
+<li>Then install carrier-specific packages: <code>package-integrated-carrier-fedex-accelerator</code>, <code>package-integrated-carrier-ups-accelerator</code></li>
+</ol>
+<hr />
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><strong>Fuuz Platform</strong> — any version with specVersion 2.0.0 package support</li>
+<li>No other Fuuz packages required as prerequisites</li>
+<li>Carrier-specific packages (FedEx, UPS) must be installed AFTER this package</li>
+</ul>
+<hr />
+<h2 id="part-of-the-integrated-carrier-suite">Part of the Integrated Carrier Suite</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>integrated-carrier-core-schema</strong> (this)</td>
+<td>Data models</td>
+</tr>
+<tr>
+<td><code>integrated-carrier-core-flows</code></td>
+<td>Router and print flows</td>
+</tr>
+<tr>
+<td><code>integrated-carrier-core-screens</code></td>
+<td>Shipment management screens</td>
+</tr>
+<tr>
+<td><code>integrated-carrier-fedex</code></td>
+<td>FedEx seed data and label flows</td>
+</tr>
+<tr>
+<td><code>integrated-carrier-ups</code></td>
+<td>UPS seed data and label flows</td>
+</tr>
+<tr>
+<td><code>integrated-carrier-addon-plex</code></td>
+<td>Plex ERP integration extension</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<p><em>Built on the <a href="https://fuuz.com">Fuuz Industrial Operations Platform</a></em></p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Intelligence Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://github.com/Fuuz-Platform/package-integrated-carrier-core-schema-accelerator">Source</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+  </div>
+</footer>
+</body>
+</html>
